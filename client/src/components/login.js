@@ -1,10 +1,14 @@
 import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './Login.css';
+
 //props passed onto element
 //login page
 function Login(props) {
     return (
+
         <form>
+          <div className="login-wrapper">
         <h1> Login Here </h1>
         <span {...props} role="loginBtn" tabIndex="0">
             Login
@@ -20,6 +24,7 @@ function Login(props) {
         </label>
         <div>
           <button type="submit">Submit</button>
+        </div>
         </div>
         </form>
     );
