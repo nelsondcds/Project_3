@@ -1,6 +1,7 @@
 // import React from "react";
 // import { useQuery } from '@apollo/client';
 // import { QUERY_CATEGORIES } from '../../queries';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 // function WorkoutList({ setWorkout }) {
 //     const { data: workoutData } = useQuery(QUERY_CATEGORIES);
