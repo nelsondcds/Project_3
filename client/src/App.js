@@ -19,9 +19,9 @@ function App() {
       <Router>
         <Container>
           <MenuBar />
-          <Route exact path="/" pages={Home} />
-          <Route exact path="/login" pages={Login} />
-          <Route exact path="/register" pages={Register} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
         </Container>
       </Router>
     </AuthProvider>
