@@ -20,7 +20,7 @@
 //   description: {
 //     type: String,
 //     required: true,
-//   },
+//   }
 // });
 
 // const Workout = model('Workout', WorkoutSchema);
