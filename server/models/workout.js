@@ -1,24 +1,24 @@
-const { Schema, model } = require('mongoose');
+// const { Schema, model } = require('mongoose');
 
-const workoutSchema = new Schema({
-  reps: {
-    type: Number,
-    required: true,
-  },
-  weight: {
-    type: Number,
-    required: true,
-  },
-  time: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-});
+// const BookSchema = new Schema({
+//   title: {
+//     type: String,
+//     required: true,
+//   },
+//   author: {
+//     type: String,
+//     required: true,
+//   },
+//   pages: {
+//     type: Number,
+//     required: true,
+//   },
+//   description: {
+//     type: String,
+//     required: true,
+//   },
+// });
 
-const workout = model('workout', workoutSchema);
+// const Book = model('Book', BookSchema);
 
-module.exports = workout;
+// module.exports = Book;
