@@ -1,24 +1,28 @@
 // const { Schema, model } = require('mongoose');
 
-// const BookSchema = new Schema({
-//   title: {
-//     type: String,
-//     required: true,
-//   },
-//   author: {
-//     type: String,
-//     required: true,
-//   },
-//   pages: {
+// const WorkoutSchema = new Schema({
+//   sets: {
 //     type: Number,
 //     required: true,
 //   },
+//   weight: {
+//     type: Number,
+//     required: true,
+//   },
+//   reps: {
+//     type: Number,
+//     required: true,
+//   },
+//  time: {
+//      type: String,
+//      required: false,    
+//  },
 //   description: {
 //     type: String,
 //     required: true,
-//   },
+//   }
 // });
 
-// const Book = model('Book', BookSchema);
+// const Workout = model('Workout', WorkoutSchema);
 
-// module.exports = Book;
+// module.exports = Workout;
