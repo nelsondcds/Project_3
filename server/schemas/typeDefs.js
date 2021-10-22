@@ -2,16 +2,19 @@ const { gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type workout {
-    _id: ID
-    title: String
-    author: String
-    pages: Int
+    reps: Int
+    weight: Int
+    time: String
     description: String
   }
 
-  type Query {
-    books: [Book]
-  }
+
+type Query {
+  Workout: workout
+}
+
 `;
+
+
 
 module.exports = typeDefs;

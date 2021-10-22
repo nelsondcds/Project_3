@@ -17,8 +17,14 @@ const workoutSchema = new Schema({
     type: String,
     required: true,
   },
-});
+},
+  {
+    toJSON: {
+      getters: true
+    }
+  }
+);
 
-const workout = model('workout', workoutSchema);
+const Workout = model('workout', workoutSchema);
 
-module.exports = workout;
+module.exports = Workout;

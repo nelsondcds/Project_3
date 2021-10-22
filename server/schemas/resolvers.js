@@ -1,9 +1,10 @@
-const { Book } = require('../models');
+
+const { User, Workout } = require('../models');
 
 const resolvers = {
   Query: {
-    books: async () => {
-      return await Book.find();
+    Workout: async () => {
+      return Workout.find();
     },
   },
 };
