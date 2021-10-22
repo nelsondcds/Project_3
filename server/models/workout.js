@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 
+
 const workoutSchema = new Schema({
   reps: {
     type: Number,
@@ -28,3 +29,4 @@ const workoutSchema = new Schema({
 const Workout = model('workout', workoutSchema);
 
 module.exports = Workout;
+
