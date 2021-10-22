@@ -1,5 +1,6 @@
 
-const { User, Workout } = require('../models');
+const { Workout } = require('../models');
+const { User } = require('../models')
 
 const resolvers = {
   Query: {
@@ -7,6 +8,16 @@ const resolvers = {
       return Workout.find();
     },
   },
+  Mutation: {
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+    
+      return user;
+    },
+    login: async () => {
+
+    }
+  }
 };
 
 module.exports = resolvers;

@@ -8,10 +8,24 @@ const typeDefs = gql`
     description: String
   }
 
+  type User {
+    _id: ID
+    username: String
+    password: String
+    email: String
+  }
+
 
 type Query {
   Workout: workout
+  User: User
 }
+
+type Mutation {
+  login(email: String!, password: String!): User
+  addUser(username: String!, email: String!, password: String!): User
+}
+
 
 `;
 
