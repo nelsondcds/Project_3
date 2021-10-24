@@ -1,24 +1,24 @@
-// const faker = require('faker');
+const faker = require('faker');
 
-// const db = require('../config/connection');
-// const { Book } = require('../models');
+const db = require('../config/connection');
+const { User } = require('../models');
 
-// db.once('open', async () => {
-//   await Book.deleteMany({});
+db.once('open', async () => {
+    await User.deleteMany({});
 
-//   // create user data
-//   const bookData = [];
+    // create user data
+    const userData = [];
 
-//   for (let i = 0; i < 20; i++) {
-//     const title = faker.company.catchPhrase();
-//     const author = faker.name.findName();
-//     const pages = faker.random.number();
-//     const description = faker.lorem.paragraphs();
+    for (let i = 0; i < 50; i += 1) {
+        const username = faker.internet.userName();
+        const email = faker.internet.email(username);
+        const password = faker.internet.password();
 
-//     bookData.push({ title, author, pages, description });
-//   }
-//   await Book.collection.insertMany(bookData);
+        userData.push({ username, email, password });
+        
+    }
 
-//   console.log('all done!');
-//   process.exit(0);
-// });
+    console.log('all done!');
+    process.exit(0);
+    // const createdUsers = await User.collection.insertMany(userData);
+})
