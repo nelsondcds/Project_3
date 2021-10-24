@@ -63,7 +63,6 @@ function App() {
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
-            <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch>
         </>
       </Router>

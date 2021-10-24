@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, Container, Modal, Tab } from "react-bootstrap";
+import { Navbar, Nav, Container, Modal, Tab, Button } from "react-bootstrap";
 import Register from "./Register";
 import Login from "./Login";
 
@@ -12,22 +12,22 @@ const NavBar = () => {
 
   return (
     <>
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar bg="light" expand="lg">
         <Container fluid>
           <Navbar.Brand as={Link} to="/">
             Health Fitness
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar" />
           <Navbar.Collapse id="navbar">
-            <Nav className="ml-auto">
-              {/* if user is logged in show saved books and logout */}
+            <Nav clssName="ml-auto">
+              {/* if user is logged in show logout */}
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
                 <Nav.Link onClick={() => setShowModal(true)}>
-                  Login / Register
+                  <Button varient="Primary">Login / Register</Button>
                 </Nav.Link>
               )}
             </Nav>
