@@ -15,11 +15,17 @@ const typeDefs = gql`
     createdAt: String!
   }
 
-  input RegisterInput {
-    username: String!
-    email: String!
-    password: String!
-    confirmPassword: String!
+  type User {
+    _id: ID
+    username: String
+    password: String
+    email: String
+  }
+
+  type Query {
+    Workout: workout
+    user: User
+    me: User
   }
 
   type Auth {
@@ -27,16 +33,32 @@ const typeDefs = gql`
     user: User
   }
 
-  type Query {
-    me: User
-    users: [User]
-    user(username: String!): User
-  }
-
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
   }
 `;
+//  input RegisterInput {
+//    username: String!
+//    email: String!
+//    password: String!
+//    confirmPassword: String!
+//  }
+
+//  type Auth {
+//    token: ID!
+//    user: User
+//  }
+
+// type Query {
+//   me: User
+//   users: [User]
+//   user(username: String!): User
+// }
+
+// type Mutation {
+//   login(email: String!, password: String!): Auth
+//   addUser(username: String!, email: String!, password: String!): Auth
+// }
 
 module.exports = typeDefs;
