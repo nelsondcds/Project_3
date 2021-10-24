@@ -1,12 +1,12 @@
 const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
-  type workout {
-    reps: Int
-    weight: Int
-    time: String
-    description: String
-  }
+ type workout {
+   reps: Int
+   weight: Int 
+   time: Int
+   description: String
+ } 
 
   type User {
     _id: ID
@@ -31,10 +31,6 @@ type Mutation {
   login(email: String!, password: String!): Auth
   addUser(username: String!, email: String!, password: String!): Auth
 }
-
-
 `;
-
-
 
 module.exports = typeDefs;
