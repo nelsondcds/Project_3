@@ -1,33 +1,32 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-
-
-const workoutSchema = new Schema({
-  reps: {
-    type: Number,
-    required: true,
+const workoutSchema = new Schema(
+  {
+    reps: {
+      type: Number,
+      required: true,
+    },
+    weight: {
+      type: Number,
+      required: true,
+    },
+    time: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
   },
-  weight: {
-    type: Number,
-    required: true,
-  },
-  time: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-},
   {
     toJSON: {
-      getters: true
-    }
+      getters: true,
+    },
   }
 );
 
-const Workout = model('workout', workoutSchema);
+// const Workout = model("workout", workoutSchema);
 
 module.exports = Workout;
 
@@ -46,7 +45,7 @@ module.exports = Workout;
 //   },
 //  time: {
 //      type: String,
-//      required: false,    
+//      required: false,
 //  },
 //   description: {
 //     type: String,

@@ -1,30 +1,73 @@
+// import React from "react";
+// import { BrowserRouter as Router, Route } from "react-router-dom";
+// import { Container } from "semantic-ui-react";
+
+// import "semantic-ui-css/semantic.min.css";
+// import "./App.css";
+
+// import { AuthProvider } from "./context/auth";
+// import AuthRoutes from "./util/AuthRoute";
+
+// import MenuBar from "./components/MenuBar";
+// import Home from "./pages/Home";
+// import Login from "./pages/Login";
+// import Register from "./pages/Register";
+
+// function App() {
+//   return (
+//     <AuthProvider>
+//       <Router>
+//         <Container>
+//           <MenuBar />
+//           <Route exact path="/" component={Home} />
+//           <Route exact path="/login" component={Login} />
+//           <Route exact path="/register" component={Register} />
+//         </Container>
+//       </Router>
+//     </AuthProvider>
+//   );
+// }
+
+// export default App;
+
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import { Container } from "semantic-ui-react";
+import { ApolloProvider } from "@apollo/react-hooks";
+import ApolloClient from "apollo-boost";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import "semantic-ui-css/semantic.min.css";
-import "./App.css";
-
-import { AuthProvider } from "./context/auth";
-import AuthRoutes from "./util/AuthRoute";
-
-import MenuBar from "./components/MenuBar";
 import Home from "./pages/Home";
+import Navbar from "./pages/NavBar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
+const client = new ApolloClient({
+  request: (operation) => {
+    const token = localStorage.getItem("id_token");
+
+    operation.setContext({
+      headers: {
+        authorization: token ? `Bearer ${token}` : "",
+      },
+    });
+  },
+  uri: "/graphql",
+});
+
 function App() {
   return (
-    <AuthProvider>
+    <ApolloProvider client={client}>
       <Router>
-        <Container>
-          <MenuBar />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
-        </Container>
+        <>
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
+            <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
+          </Switch>
+        </>
       </Router>
-    </AuthProvider>
+    </ApolloProvider>
   );
 }
 

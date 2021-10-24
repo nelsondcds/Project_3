@@ -14,11 +14,13 @@ module.exports = {
         .split(' ')
         .pop()
         .trim();
+
     }
 
     if (!token) {
       return req;
     }
+
 
     try {
       const { data } = jwt.verify(token, secret, { maxAge: expiration });
