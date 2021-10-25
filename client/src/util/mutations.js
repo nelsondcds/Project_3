@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import { gql } from '@apollo/client';
 
 export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
@@ -7,7 +7,8 @@ export const LOGIN_USER = gql`
       user {
         _id
         username
-        email
+        email 
+        password
       }
     }
   }
@@ -21,7 +22,19 @@ export const ADD_USER = gql`
         _id
         username
         email
+        password
       }
     }
   }
 `;
+
+export const ADD_WORKOUT = gql `
+  mutation addWorkout($reps: Int!, $weight: Int!, $time: Int!, $description: String! ) {
+      addWorkout(reps: $reps, weight: $weight, time: $time, description: $description){
+          reps
+          weight
+          time
+          description
+      }
+  }
+`

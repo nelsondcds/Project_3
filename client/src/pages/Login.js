@@ -90,7 +90,7 @@ import { Form, Button, Alert } from "react-bootstrap";
 
 // import { loginUser } from '../utils/API';
 import { useMutation } from "@apollo/react-hooks";
-import { LOGIN_USER } from "../util/mutation";
+import { LOGIN_USER } from "../util/mutations";
 import Auth from "../util/auth";
 
 const Login = () => {
