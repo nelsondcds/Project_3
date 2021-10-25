@@ -1,4 +1,4 @@
-import { gql } from "graphql-tag";
+import gql from 'graphql-tag';
 
 export const GET_ME = gql`
   {
@@ -8,3 +8,14 @@ export const GET_ME = gql`
     }
   }
 `;
+
+export const WORKOUT = gql`
+  query Workout {
+    reps
+    weight
+    time 
+    description
+
+  }
+
+`
