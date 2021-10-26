@@ -123,7 +123,7 @@ import { Form, Button, Alert } from "react-bootstrap";
 // import { createUser } from '../utils/API';
 import Auth from "../util/auth";
 
-import { ADD_USER } from "../util/mutation";
+import { ADD_USER } from "../util/mutations";
 import { useMutation } from "@apollo/react-hooks";
 
 const Register = () => {

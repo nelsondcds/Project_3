@@ -52,7 +52,8 @@ const resolvers = {
       }
       const token = signToken(user)
       return { token, user };
-    }
+    },
+    // addWorkout: async 
   }
 };
 
