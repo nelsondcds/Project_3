@@ -40,8 +40,10 @@ import Navbar from "./pages/NavBar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Favorites from "./pages/Favorites";
 
-import Auth from "../util/auth";
+
+import Auth from "./util/auth";
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -65,16 +67,20 @@ function App() {
         <>
           <Navbar />
           <Switch>
-            <Route exact path="/" component={Home} />
             {Auth.loggedIn() ? (
                 <>
+                  <Route exact path="/" component={Dashboard} />
+                  <Route exact path="/home" component={Home} />
                   <Route exact path="/dashboard" component={Dashboard} />
+                  <Route exact path="/favorites" component={Favorites} />
                   <Route exact path="/login" component={Dashboard} />
                   <Route exact path="/register" component={Dashboard} />
                 </>
               ) : (
                 <>
-                  <Route exact path="/dashboard" component={Home} />
+                  <Route exact path="/" component={Home} />
+                  <Route exact path="/dashboard" component={Login} />
+                  <Route exact path="/favorites" component={Login} />
                   <Route exact path="/login" component={Login} />
                   <Route exact path="/register" component={Register} />
                 </>

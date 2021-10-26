@@ -37,4 +37,34 @@ export const ADD_WORKOUT = gql `
           description
       }
   }
-`
+`;
+
+export const ADD_FAVORITE = gql `
+  mutation addFavorite($workoutId: ID!) {
+    addFavorite(workoutId: $workoutId) {
+      workouts {
+        _id
+        reps
+        weight
+        time
+        description
+        area
+      }
+    } 
+  }
+`;
+
+export const REMOVE_FAVORITE = gql `
+  mutation removeFavorite($workoutId: ID!) {
+    removeFavorite(workoutId: $workoutId) {
+      workouts {
+        _id
+        reps
+        weight
+        time
+        description
+        area
+      }
+    } 
+  }
+`;

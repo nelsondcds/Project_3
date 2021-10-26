@@ -30,7 +30,7 @@ const resolvers = {
     user: async (parent, args, context) => {
      
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id })
+        const userData = await User.findOne({ _id: context.user._id }).select('-__v -password').populate('workouts');
 
         return userData;
       }
@@ -73,6 +73,21 @@ const resolvers = {
           const updatedUser = await User.findOneAndUpdate(
             { _id: context.user._id },
             { $addToSet: { workouts: workoutId } },
+            { new: true }
+          )
+          .select('-__v -password')
+          .populate('workouts');
+      
+          return updatedUser;
+        }
+      
+        throw new AuthenticationError('You need to be logged in!');
+    },
+    removeFavorite: async (parent, { workoutId }, context) => {
+        if (context.user) {
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $pull: { workouts: workoutId } },
             { new: true }
           )
           .select('-__v -password')

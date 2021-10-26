@@ -36,6 +36,7 @@ type Mutation {
   addUser(username: String!, email: String!, password: String!): Auth
   addWorkout(reps: Int!, weight: Int!, time: Int!, description: String!, area: String!): Workout
   addFavorite(workoutId: ID!): User
+  removeFavorite(workoutId: ID!): User
 }
 `;
 
