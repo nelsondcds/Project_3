@@ -15,7 +15,7 @@ const NavBar = () => {
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
           <Navbar.Brand as={Link} to="/">
-            Health Fitness
+            Fitness Tracker App
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar" />
           <Navbar.Collapse id="navbar">
