@@ -16,7 +16,7 @@ console.log(workouts);
             {loading ? (
               <div>Loading...</div>
             ) : (
-              <WorkoutList workouts={workouts} title="Some Feed for Thought(s)..." />
+              <WorkoutList workouts={workouts} title="Some Food for Thought(s)..." />
             )}
           </div>
         </div>
