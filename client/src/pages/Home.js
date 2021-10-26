@@ -1,10 +1,13 @@
 import React from "react";
+import "./assets/Home.css";
 
 function Home() {
   return (
-    <div>
-      <h1>Home Page</h1>
+    <section class="hero">
+    <div class= "transparentbox">
+      <h1>Weightlifting Genie</h1>
     </div>
+    </section>
   );
 }
 
