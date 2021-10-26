@@ -39,6 +39,9 @@ import Home from "./pages/Home";
 import Navbar from "./pages/NavBar";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
+
+import Auth from "../util/auth";
 
 const client = new ApolloClient({
   request: (operation) => {
@@ -63,8 +66,19 @@ function App() {
           <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/register" component={Register} />
+            {Auth.loggedIn() ? (
+                <>
+                  <Route exact path="/dashboard" component={Dashboard} />
+                  <Route exact path="/login" component={Dashboard} />
+                  <Route exact path="/register" component={Dashboard} />
+                </>
+              ) : (
+                <>
+                  <Route exact path="/dashboard" component={Home} />
+                  <Route exact path="/login" component={Login} />
+                  <Route exact path="/register" component={Register} />
+                </>
+            )}
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch>
         </>

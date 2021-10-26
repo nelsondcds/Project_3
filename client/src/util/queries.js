@@ -11,11 +11,11 @@ export const GET_ME = gql`
 
 export const WORKOUT = gql`
   query Workout {
+    _id
     reps
     weight
     time 
     description
-
+    area
   }
-
-`
+`;

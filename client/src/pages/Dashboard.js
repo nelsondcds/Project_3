@@ -3,11 +3,11 @@ import { WORKOUT} from '../utils/queries';
 import React from "react";
 import WorkoutList from '../components/WorkoutList';
 
-const Home = () => {
+const Dashboard = () => {
     // use useQuery hook to make query request
     const { loading, data } = useQuery(WORKOUT);
     const workouts = data?.workouts || [];
-console.log(workouts);
+    console.log(workouts);
   
     return (
         <main>
@@ -16,10 +16,12 @@ console.log(workouts);
             {loading ? (
               <div>Loading...</div>
             ) : (
-              <WorkoutList workouts={workouts} title="Some Feed for Thought(s)..." />
+              <WorkoutList workouts={workouts} title="Find some new workouts!" />
             )}
           </div>
         </div>
       </main>
     );
-  };
+};
+
+export default Dashboard;
