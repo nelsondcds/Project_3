@@ -50,11 +50,8 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-<<<<<<< HEAD
-    // addWorkout: async 
-  }
-=======
+    // addWorkout: async
   },
->>>>>>> 1985e7d7e79d371fe2821006443c156ca006b2f7
 };
+
 module.exports = resolvers;
