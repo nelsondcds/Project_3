@@ -1,6 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { Workout } = require('../models');
-const { User } = require('../models')
+const { User, Workout } = require('../models');
 const { signToken } = require('../utils/auth');
 
 
@@ -9,7 +8,7 @@ const resolvers = {
     me: async (parent, args, context) => {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
-          .select('-__v -password')
+          .select('-__v -password');
           
 
         return userData;
@@ -18,13 +17,20 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
 
-    Workout: async () => {
-      return Workout.find();
+    workouts: async () => {
+        const workoutData = await Workout.find();
+
+        return workoutData;
+    },
+    workoutsByArea: async (parent, { area }, context) => {
+        const workoutData = await Workout.find({ area: area });
+
+        return workoutData;
     },
     user: async (parent, args, context) => {
      
-      if (true) {
-        const userData = await User.findOne({ _id: context.user._id })
+      if (context.user) {
+        const userData = await User.findOne({ _id: context.user._id }).select('-__v -password').populate('workouts');
 
         return userData;
       }
@@ -53,7 +59,45 @@ const resolvers = {
       const token = signToken(user)
       return { token, user };
     },
-    // addWorkout: async 
+    addWorkout: async (parent, args, context) => {
+        if (context.user) {
+          const workoutData = await Workout.create({ ...args });
+      
+          return workoutData;
+        }
+      
+        throw new AuthenticationError('You need to be logged in!');
+    },
+    addFavorite: async (parent, { workoutId }, context) => {
+        if (context.user) {
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $addToSet: { workouts: workoutId } },
+            { new: true }
+          )
+          .select('-__v -password')
+          .populate('workouts');
+      
+          return updatedUser;
+        }
+      
+        throw new AuthenticationError('You need to be logged in!');
+    },
+    removeFavorite: async (parent, { workoutId }, context) => {
+        if (context.user) {
+          const updatedUser = await User.findOneAndUpdate(
+            { _id: context.user._id },
+            { $pull: { workouts: workoutId } },
+            { new: true }
+          )
+          .select('-__v -password')
+          .populate('workouts');
+      
+          return updatedUser;
+        }
+      
+        throw new AuthenticationError('You need to be logged in!');
+    }
   }
 };
 

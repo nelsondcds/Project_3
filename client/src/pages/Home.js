@@ -3,10 +3,10 @@ import "./assets/Home.css";
 
 function Home() {
   return (
-    <section class="hero">
-    <div class= "transparentbox">
-      <h1>Fitness Tracker</h1>
-    </div>
+    <section className="hero">
+      <div className= "transparentbox">
+        <h1>Weightlifting Genie</h1>
+      </div>
     </section>
   );
 }
