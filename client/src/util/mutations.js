@@ -29,12 +29,13 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_WORKOUT = gql `
-  mutation addWorkout($reps: Int!, $weight: Int!, $time: Int!, $description: String! ) {
-      addWorkout(reps: $reps, weight: $weight, time: $time, description: $description){
+  mutation addWorkout($reps: Int!, $weight: Int!, $time: Int!, $description: String!, $area: String! ) {
+      addWorkout(reps: $reps, weight: $weight, time: $time, description: $description, area: $area){
           reps
           weight
           time
           description
+          area
       }
   }
 `;
