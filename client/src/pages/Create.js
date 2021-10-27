@@ -111,26 +111,28 @@ const Create = () => {
           Something went wrong with your submission!
         </Alert>
 
-        <Form.Group>
-          <Form.Label htmlFor="area">Area of focus:</Form.Label>
-          <Form.Control
-            name="area"
-            type="text"
-            as="select"
-            // value={workoutFormState.area}
-            onChange={handleInputChange}
-            required
-          >
-            <option value="">Please select an area of focus</option>
-            <option value="Chest">Chest</option>
-            <option value="Back">Back</option>
-            <option value="Arms">Arms</option>
-            <option value="Shoulders">Shoulders</option>
-            <option value="Legs">Legs</option>
-          </Form.Control>
+        <Form.Group as={Row} className="mb-3">
+            <Form.Label column sm="2" htmlFor="area">Area of focus:</Form.Label>
+            <Form.Control size="md"
+                name="area"
+                type="text"
+                as="select"
+                // value={workoutFormState.area}
+                onChange={handleInputChange}
+                required
+            >
+              <Form.Select aria-label="Default select example" size="sm">
+                <option value="">Please select an area of focus</option>
+                <option value="Chest">Chest</option>
+                <option value="Back">Back</option>
+                <option value="Arms">Arms</option>
+                <option value="Shoulders">Shoulders</option>
+                <option value="Legs">Legs</option>
+                </Form.Select>
+            </Form.Control>
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group as={Row} className="mb-3">
           <Form.Label>Weight</Form.Label>
           <Form.Control
             type="text"
@@ -142,7 +144,7 @@ const Create = () => {
           />
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group as={Row} className="mb-3">
           <Form.Label>Reps</Form.Label>
           <Form.Control
             type="text"
@@ -154,7 +156,7 @@ const Create = () => {
           />
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group as={Row} className="mb-3">
           <Form.Label>Time</Form.Label>
           <Form.Control
             type="text"
@@ -166,7 +168,7 @@ const Create = () => {
           />
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group as={Row} className="mb-3">
           <Form.Label>Description</Form.Label>
           <Form.Control
             as="textarea"
@@ -179,33 +181,32 @@ const Create = () => {
           />
         </Form.Group>
 
-        <Button
-          disabled={
-            !(
-              workoutFormState.weight &&
-              workoutFormState.area &&
-              workoutFormState.description &&
-              workoutFormState.time &&
-              workoutFormState.reps
-            )
-          }
-          type="submit"
-          variant="success"
-        >
-          Submit
-        </Button>
-      </Form>
-      {submittedState && (
-        <p
-          style={{
-            color: "white",
-          }}
-        >
-          Workout submitted!
-        </p>
-      )}
-    </>
-  );
+        <div className="d-grid mb-2">
+          <Button
+            disabled={
+              !(
+                workoutFormState.weight &&
+                workoutFormState.area &&
+                workoutFormState.description &&
+                workoutFormState.time &&
+                workoutFormState.reps
+              )
+            }
+            size="lg"
+            type="submit"
+            variant="success"
+          >
+            Submit
+          </Button>
+        </div>
+       </Form>
+       {submittedState &&
+        <p style={{
+            color: 'white'
+          }}>Workout submitted!</p>
+       }
+      </>
+    );
 };
 
 export default Create;
