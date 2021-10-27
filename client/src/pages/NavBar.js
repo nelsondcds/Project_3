@@ -6,6 +6,8 @@ import Login from "./Login";
 
 import Auth from "../util/auth";
 
+import "./assets/NavBar.css";
+
 const NavBar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
@@ -15,7 +17,7 @@ const NavBar = () => {
       <Navbar bg="dark" variant="dark" expand="lg">
         <Container fluid>
           <Navbar.Brand as={Link} to="/">
-            Fitness Tracker App
+            Weightlifting Genie
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar" />
           <Navbar.Collapse id="navbar">
@@ -23,6 +25,9 @@ const NavBar = () => {
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
+                  <Link to="/dashboard">Dashboard</Link>
+                  <Link to="/favorites">Favorite</Link>
+                  <Link to="/create">Create</Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (

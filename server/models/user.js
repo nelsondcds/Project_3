@@ -18,6 +18,12 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    workouts: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Workout",
+      },
+    ],
   },
 
   {

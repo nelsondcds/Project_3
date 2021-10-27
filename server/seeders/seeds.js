@@ -1,23 +1,31 @@
 const faker = require("faker");
 
 const db = require("../config/connection");
-const { User } = require("../models");
+const { Workout } = require("../models");
 
 db.once("open", async () => {
-  await User.deleteMany({});
+  await Workout.deleteMany({});
 
-  // create user data
-  const userData = [];
+  const areas = ["Chest", "Back", "Arms", "Shoulders", "Legs"];
+  const workoutData = [];
 
   for (let i = 0; i < 50; i += 1) {
-    const username = faker.internet.userName();
-    const email = faker.internet.email(username);
-    const password = faker.internet.password();
+    const reps = faker.datatype.number(29) + 1;
+    const weight = faker.datatype.number(499) + 1;
+    const time = faker.datatype.number(59) + 1;
+    const description = faker.random.words(10);
+    const areaNum = faker.datatype.number(4);
+    const area = areas[areaNum];
 
-    userData.push({ username, email, password });
+    workoutData.push({ reps, weight, time, description, area });
+  }
+
+  try {
+    await Workout.collection.insertMany(workoutData);
+  } catch (error) {
+    throw new Error("failed to seed database");
   }
 
   console.log("all done!");
   process.exit(0);
-  // const createdUsers = await User.collection.insertMany(userData);
 });
