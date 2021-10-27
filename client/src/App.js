@@ -76,6 +76,7 @@ function App() {
                 <Route exact path="/favorites" component={Favorites} />
                 <Route exact path="/login" component={Dashboard} />
                 <Route exact path="/register" component={Dashboard} />
+                <Route component={Footer} />
               </>
             ) : (
               <>

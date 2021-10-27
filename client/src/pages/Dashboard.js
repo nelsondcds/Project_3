@@ -2,6 +2,7 @@ import { useQuery, useLazyQuery } from "@apollo/client";
 import { WORKOUTS, WORKOUTS_BY_AREA, GET_FAVORITES } from "../util/queries";
 import React, { useState } from "react";
 import WorkoutList from "../components/WorkoutList";
+import "./assets/Dashboard.css";
 
 const Dashboard = ({ location }) => {
   const { loading, data } = useQuery(WORKOUTS);
@@ -26,7 +27,7 @@ const Dashboard = ({ location }) => {
 
   return (
     <main>
-      <div className="flex-row justify-space-between">
+      <div className="flex-row justify-space-between dash">
         <div className="col-12 mb-3">
           <select onChange={handleChange}>
             <option value="">Any</option>
@@ -38,7 +39,11 @@ const Dashboard = ({ location }) => {
           </select>
           <button
             onClick={() => {
-              getNewWorkouts({ variables: { area: selectState } });
+              if (selectState) {
+                getNewWorkouts({ variables: { area: selectState } });
+              } else {
+                setDataState([]);
+              }
             }}
           >
             Find some new workouts!
@@ -47,7 +52,7 @@ const Dashboard = ({ location }) => {
         <div className="col-12 mb-3">
           {loading ? (
             <div>Loading...</div>
-          ) : newData?.workoutsByArea ? (
+          ) : newData?.workoutsByArea && selectState ? (
             <WorkoutList
               workouts={newWorkouts}
               favWorkouts={favWorkouts}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { ADD_FAVORITE, REMOVE_FAVORITE } from "../../util/mutations";
 
@@ -13,6 +13,8 @@ const WorkoutList = ({
   const shuffleWorkouts = workouts.sort(() => 0.5 - Math.random());
   const randomWorkouts = [];
 
+  const [favState, setFavState] = useState({});
+
   const [addFavorite, { error: addFavoriteError }] = useMutation(ADD_FAVORITE);
 
   const [removeFavorite, { error: removeFavoriteError }] =
@@ -23,24 +25,21 @@ const WorkoutList = ({
       const { data: addedData } = await addFavorite({
         variables: { workoutId: id },
       });
+      setFavState({...favState, [id]: true});
     } catch (e) {
       console.error(e);
     }
   };
 
   const handleRemove = async (id) => {
-    setDataState([]);
     try {
       const { data: removedData } = await removeFavorite({
         variables: { workoutId: id },
       });
+      setDataState([]);
     } catch (e) {
       console.error(e);
     }
-  };
-
-  const isEqual = (first, second) => {
-    return JSON.stringify(first) === JSON.stringify(second);
   };
 
   useEffect(() => {
@@ -61,31 +60,23 @@ const WorkoutList = ({
 
   return (
     <div>
-      <h3>{title}</h3>
+      {location.pathname !== "/favorites" &&
+        <h3>{title}</h3>
+      }
       {randomWorkouts &&
         dataState.map((workout, index) => (
-          <div key={workout._id}>
+          <div className="workout" key={workout._id}>
             <p>{workout.area}</p>
             <p>{workout.description}</p>
             <p>{workout.reps}</p>
             <p>{workout.weight}</p>
             <p>{workout.time}</p>
             {location.pathname !== "/favorites" ? (
-              favWorkouts.some((e) =>
-                isEqual(e, {
-                  _id: workout._id,
-                  reps: workout.reps,
-                  weight: workout.weight,
-                  time: workout.time,
-                  description: workout.description,
-                  area: workout.area,
-                  __typename: "Workout",
-                })
-              ) ? (
+              favState[workout._id] ? (
                 <button
                   onClick={() => console.log("Why are you clicking this?")}
                 >
-                  Already Favorited
+                  Favorited
                 </button>
               ) : (
                 <button onClick={() => handleAdd(workout._id)}>
