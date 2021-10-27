@@ -13,7 +13,8 @@ export default function Social() {
   return (
     <div className="social-container">
       <h3>
-        <span>Group 5</span>
+        STEP UP YOUR
+        <span> WORK-OUT</span> WITH US
       </h3>
       <a href="https://www.youtube.com" className="youtube social">
         <FontAwesomeIcon icon={faYoutube} size="2x" />

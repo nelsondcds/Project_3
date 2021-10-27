@@ -7,8 +7,13 @@
   text-align: center;
 }
 
+.social-container span {
+  color: red;
+}
+
 .social-container h3 {
   color: gray;
+  padding: 1rem;
 }
 
 a.social {
