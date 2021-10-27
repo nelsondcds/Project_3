@@ -6,6 +6,8 @@ import Login from "./Login";
 
 import Auth from "../util/auth";
 
+import "./assets/NavBar.css"
+
 const NavBar = () => {
   // set modal display state
   const [showModal, setShowModal] = useState(false);
