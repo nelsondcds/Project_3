@@ -14,18 +14,21 @@ function Favorites({ location }) {
         <main>
             <div className="flex-row justify-space-between dash">
                 <section>
-                    <h1>Your Favorites</h1>
-                    {loading ? (
-                        <div>Loading...</div>
-                    ) : (
-                        <WorkoutList
-                        workouts={favWorkouts}
-                        favWorkouts={favWorkouts}
-                        dataState={dataState}
-                        setDataState={setDataState}
-                        location={location}
-                        title="Find some new workouts!" />
-                    )}
+                    <h3>Your Favorites</h3>
+                    <div className="col-12 mb-3">
+                        {loading ? (
+                            <div>Loading...</div>
+                        ) : (
+                            <WorkoutList
+                            workouts={favWorkouts}
+                            favWorkouts={favWorkouts}
+                            dataState={dataState}
+                            setDataState={setDataState}
+                            location={location}
+                            key={location.pathname}
+                            title="Find some new workouts!" />
+                        )}
+                    </div>
                 </section>
             </div>
         </main>
