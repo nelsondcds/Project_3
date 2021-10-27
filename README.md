@@ -38,9 +38,11 @@ Tracking Functionality: Users can keep track of their reps, sets, weight, and ti
 
 ## Screenshots of Deployed Application
 
+![Homepage Screenshot](./screenshot.JPG)
+
 ## Link to Deployed Application
 
-[Visit the Deployed Application]
+[Visit the Deployed Application](https://weightlifting-genie.herokuapp.com/)
 
 ## The Team
 
