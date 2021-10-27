@@ -1,0 +1,47 @@
+.main {
+    margin: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color:#0731;
+}
+.div {
+    background-color: grey;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    border-radius: 9px;
+    border-color: gold;
+    border-width: 2px;
+}
+.select option {
+    width:180px;
+}
+.select-selected:after {
+    position: absolute;
+    content:'';
+    border: 4px solid transparent;
+    height:0;
+    width:0;
+    right: 10px;
+    top: 15px;
+}
+.select-items{
+    position:absolute;
+    background-color:whitesmoke;
+    top: 90%;
+    left:0;
+    right:0;
+    z-index:99;
+}
+.select-hide{
+    display: none;
+}
+.button {
+    padding: 3px;
+    font-style:italic;
+    border-radius: 11px;
+    color:#0731;
+}
+#col-12 mb-3{
+    text-align: left;
+    font-style: bold;
+}

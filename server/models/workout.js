@@ -18,6 +18,11 @@ const workoutSchema = new Schema(
       type: String,
       required: true,
     },
+    area: {
+      type: String,
+      required: true,
+      enum: ['Chest', 'Back', 'Arms', 'Shoulders', 'Legs']
+    }
   },
   {
     toJSON: {
@@ -26,6 +31,6 @@ const workoutSchema = new Schema(
   }
 );
 
-const Workout = model("workout", workoutSchema);
+const Workout = model("Workout", workoutSchema);
 
 module.exports = Workout;
