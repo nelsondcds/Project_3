@@ -1,0 +1,45 @@
+body {background-color: black;}
+
+/* Hero Style Start */
+.hero {
+    background-image: url("https://img.freepik.com/free-photo/strong-man-training-gym_1303-23478.jpg?size=626&ext=jpg");
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  /* Hero Style End */
+
+  div.transparentbox {
+    opacity: 0.6;
+    margin: 30px;
+    border: 1px solid black;
+    background-color: #ffffff;
+    filter: alpha(opacity=60); /* This is for IE8 and other earlier browsers */
+    
+}
+ 
+ div.transparentbox {
+    opacity: 0.6;
+    margin: 30px;
+    border: 1px solid black;
+    background-color: #ffffff;
+    filter: alpha(opacity=60); /* This is for IE8 and other earlier browsers */
+    margin-left: auto;
+    margin-right: auto;
+    width: 30em;
+    text-align: center;
+    
+ }
+ 
+ div.transparentbox h1 {
+    margin: 5%;
+    color: #000000;
+    font-weight: bold;
+    
+ }
+ 
+ div.background {
+    border: 2px solid black;
+    background: url("https://img.freepik.com/free-photo/strong-man-training-gym_1303-23478.jpg?size=626&ext=jpg") repeat;
+ }
