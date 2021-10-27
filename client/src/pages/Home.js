@@ -5,7 +5,7 @@ function Home() {
   return (
     <section class="hero">
     <div class= "transparentbox">
-      <h1>Fitness Tracker</h1>
+      <h1>Weightlifting Genie</h1>
     </div>
     </section>
   );
