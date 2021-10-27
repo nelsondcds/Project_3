@@ -25,9 +25,10 @@ const NavBar = () => {
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Link to="/dashboard">Dashboard</Link>
-                  <Link to="/favorites">Favorite</Link>
-                  <Link to="/create">Create</Link>
+                  <Link to="/home" className="nav-link">Home</Link>
+                  <Link to="/dashboard" className="nav-link">Dashboard</Link>
+                  <Link to="/favorites" className="nav-link">Favorite</Link>
+                  <Link to="/create" className="nav-link">Create</Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (

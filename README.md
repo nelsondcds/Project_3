@@ -1,4 +1,5 @@
 # Project_3
+
 Weightlifting Genie is full CRUD application created to simplify your fitness journey. 
 As a Weightlifting Genie app user, you will be able to create, generate, and add workouts. 
 Whether you work out at home, the gym, or outside, the app is designed to make it easy for you to keep up with your fitness. All you need are weights!

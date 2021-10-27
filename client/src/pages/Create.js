@@ -111,8 +111,8 @@ const Create = () => {
           Something went wrong with your submission!
         </Alert>
 
-        <Form.Group as={Row} className="mb-3">
-            <Form.Label column sm="2" htmlFor="area">Area of focus:</Form.Label>
+        <Form.Group className="mb-3">
+            <Form.Label column sm="2" style={{color: 'white'}}>Area of focus:</Form.Label>
             <Form.Control size="md"
                 name="area"
                 type="text"
@@ -121,19 +121,17 @@ const Create = () => {
                 onChange={handleInputChange}
                 required
             >
-              <Form.Select aria-label="Default select example" size="sm">
-                <option value="">Please select an area of focus</option>
-                <option value="Chest">Chest</option>
-                <option value="Back">Back</option>
-                <option value="Arms">Arms</option>
-                <option value="Shoulders">Shoulders</option>
-                <option value="Legs">Legs</option>
-                </Form.Select>
+              <option value="">Please select an area of focus</option>
+              <option value="Chest">Chest</option>
+              <option value="Back">Back</option>
+              <option value="Arms">Arms</option>
+              <option value="Shoulders">Shoulders</option>
+              <option value="Legs">Legs</option>
             </Form.Control>
         </Form.Group>
 
-        <Form.Group as={Row} className="mb-3">
-          <Form.Label>Weight</Form.Label>
+        <Form.Group className="mb-3">
+          <Form.Label column sm="2" style={{color: 'white'}}>Weight</Form.Label>
           <Form.Control
             type="text"
             placeholder="Please enter a weight in lbs."
@@ -144,8 +142,8 @@ const Create = () => {
           />
         </Form.Group>
 
-        <Form.Group as={Row} className="mb-3">
-          <Form.Label>Reps</Form.Label>
+        <Form.Group className="mb-3">
+          <Form.Label column sm="2" style={{color: 'white'}}>Reps</Form.Label>
           <Form.Control
             type="text"
             placeholder="Please enter a number of reps."
@@ -156,8 +154,8 @@ const Create = () => {
           />
         </Form.Group>
 
-        <Form.Group as={Row} className="mb-3">
-          <Form.Label>Time</Form.Label>
+        <Form.Group className="mb-3">
+          <Form.Label column sm="2" style={{color: 'white'}}>Time</Form.Label>
           <Form.Control
             type="text"
             placeholder="Please enter a time in minutes."
@@ -168,8 +166,8 @@ const Create = () => {
           />
         </Form.Group>
 
-        <Form.Group as={Row} className="mb-3">
-          <Form.Label>Description</Form.Label>
+        <Form.Group className="mb-3">
+          <Form.Label column sm="2" style={{color: 'white'}}>Description</Form.Label>
           <Form.Control
             as="textarea"
             rows={5}

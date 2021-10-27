@@ -73,7 +73,7 @@ const Register = () => {
           show={showAlert}
           variant="danger"
         >
-          Something went wrong with your register!
+          Something went wrong with your registration!
         </Alert>
 
         <Form.Group>
