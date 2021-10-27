@@ -43,7 +43,6 @@ import Dashboard from "./pages/Dashboard";
 import Favorites from "./pages/Favorites";
 import Create from "./pages/Create";
 
-
 import Auth from "./util/auth";
 
 const client = new ApolloClient({
@@ -59,8 +58,6 @@ const client = new ApolloClient({
   uri: "/graphql",
 });
 
-
-
 function App() {
   return (
     <ApolloProvider client={client}>
@@ -69,24 +66,24 @@ function App() {
           <Navbar />
           <Switch>
             {Auth.loggedIn() ? (
-                <>
-                  <Route exact path="/" component={Dashboard} />
-                  <Route exact path="/home" component={Home} />
-                  <Route exact path="/dashboard" component={Dashboard} />
-                  <Route exact path="/create" component={Create} />
-                  <Route exact path="/favorites" component={Favorites} />
-                  <Route exact path="/login" component={Dashboard} />
-                  <Route exact path="/register" component={Dashboard} />
-                </>
-              ) : (
-                <>
-                  <Route exact path="/" component={Home} />
-                  <Route exact path="/dashboard" component={Login} />
-                  <Route exact path="/create" component={Login} />
-                  <Route exact path="/favorites" component={Login} />
-                  <Route exact path="/login" component={Login} />
-                  <Route exact path="/register" component={Register} />
-                </>
+              <>
+                <Route exact path="/" component={Dashboard} />
+                <Route exact path="/home" component={Home} />
+                <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/create" component={Create} />
+                <Route exact path="/favorites" component={Favorites} />
+                <Route exact path="/login" component={Dashboard} />
+                <Route exact path="/register" component={Dashboard} />
+              </>
+            ) : (
+              <>
+                <Route exact path="/" component={Home} />
+                <Route exact path="/dashboard" component={Login} />
+                <Route exact path="/create" component={Login} />
+                <Route exact path="/favorites" component={Login} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/register" component={Register} />
+              </>
             )}
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch>

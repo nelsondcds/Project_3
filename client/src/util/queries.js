@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const GET_ME = gql`
   {
@@ -15,7 +15,7 @@ export const WORKOUTS = gql`
       _id
       reps
       weight
-      time 
+      time
       description
       area
     }
