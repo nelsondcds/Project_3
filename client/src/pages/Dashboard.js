@@ -1,5 +1,4 @@
 import { useQuery, useLazyQuery } from "@apollo/client";
-import "./assets/Dashboard.css";
 import { WORKOUTS, WORKOUTS_BY_AREA, GET_FAVORITES } from "../util/queries";
 import React, { useState } from "react";
 import WorkoutList from "../components/WorkoutList";
