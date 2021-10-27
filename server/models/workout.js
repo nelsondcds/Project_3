@@ -21,8 +21,8 @@ const workoutSchema = new Schema(
     area: {
       type: String,
       required: true,
-      enum: ['Chest', 'Back', 'Arms', 'Shoulders', 'Legs']
-    }
+      enum: ["Chest", "Back", "Arms", "Shoulders", "Legs"],
+    },
   },
   {
     toJSON: {
