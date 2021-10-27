@@ -4,7 +4,7 @@ import "./assets/Home.css";
 function Home() {
   return (
     <section className="hero">
-      <div className= "transparentbox">
+      <div className="transparentbox">
         <h1>Weightlifting Genie</h1>
       </div>
     </section>

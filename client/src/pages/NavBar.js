@@ -6,7 +6,7 @@ import Login from "./Login";
 
 import Auth from "../util/auth";
 
-import "./assets/NavBar.css"
+import "./assets/NavBar.css";
 
 const NavBar = () => {
   // set modal display state
@@ -25,6 +25,9 @@ const NavBar = () => {
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
+                  <Link to="/dashboard">Dashboard</Link>
+                  <Link to="/favorites">Favorite</Link>
+                  <Link to="/create">Create</Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
