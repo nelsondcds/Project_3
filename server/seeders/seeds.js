@@ -10,7 +10,7 @@ db.once('open', async () => {
     const workoutData = [];
 
     for (let i = 0; i < 50; i += 1) {
-        const reps = faker.datatype.number(14) + 1;
+        const reps = faker.datatype.number(29) + 1;
         const weight = faker.datatype.number(499) + 1;
         const time = faker.datatype.number(59) + 1;
         const description = faker.random.words(10);
