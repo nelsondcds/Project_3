@@ -35,6 +35,8 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import Footer from "./components/Footer/Footer";
+
 import Home from "./pages/Home";
 import Navbar from "./pages/NavBar";
 import Login from "./pages/Login";
@@ -83,6 +85,7 @@ function App() {
                 <Route exact path="/favorites" component={Login} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
+                <Route component={Footer} />
               </>
             )}
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
