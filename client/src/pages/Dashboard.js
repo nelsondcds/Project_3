@@ -1,7 +1,9 @@
 import { useQuery, useLazyQuery } from "@apollo/client";
 import { WORKOUTS, WORKOUTS_BY_AREA, GET_FAVORITES } from "../util/queries";
 import React, { useState } from "react";
-import WorkoutList from "../components/WorkoutList";
+import WorkoutList from '../components/WorkoutList';
+import './assets/Dashboard.css';
+
 
 const Dashboard = ({ location }) => {
   const { loading, data } = useQuery(WORKOUTS);
