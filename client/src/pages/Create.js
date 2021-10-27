@@ -122,7 +122,7 @@ const Create = () => {
             </Form.Control>
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group as={Row} className="mb-3">
           <Form.Label>Weight</Form.Label>
           <Form.Control
             type="text"
@@ -134,7 +134,7 @@ const Create = () => {
           />
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group as={Row} className="mb-3">
           <Form.Label>Reps</Form.Label>
           <Form.Control
             type="text"
@@ -146,7 +146,7 @@ const Create = () => {
           />
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group as={Row} className="mb-3">
           <Form.Label>Time</Form.Label>
           <Form.Control
             type="text"
@@ -158,7 +158,7 @@ const Create = () => {
           />
         </Form.Group>
 
-        <Form.Group>
+        <Form.Group as={Row} className="mb-3">
           <Form.Label>Description</Form.Label>
           <Form.Control
             as="textarea"
@@ -171,6 +171,7 @@ const Create = () => {
           />
         </Form.Group>
 
+        <div className="d-grid mb-2">
         <Button
           disabled={
             !(
@@ -181,11 +182,13 @@ const Create = () => {
                 workoutFormState.reps
             )
           }
+          size="lg"
           type="submit"
           variant="success"
         >
           Submit
         </Button>
+        </div>
        </Form>
        {submittedState &&
         <p style={{
