@@ -41,6 +41,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Favorites from "./pages/Favorites";
+import Create from "./pages/Create";
 
 
 import Auth from "./util/auth";
@@ -72,6 +73,7 @@ function App() {
                   <Route exact path="/" component={Dashboard} />
                   <Route exact path="/home" component={Home} />
                   <Route exact path="/dashboard" component={Dashboard} />
+                  <Route exact path="/create" component={Create} />
                   <Route exact path="/favorites" component={Favorites} />
                   <Route exact path="/login" component={Dashboard} />
                   <Route exact path="/register" component={Dashboard} />
@@ -80,6 +82,7 @@ function App() {
                 <>
                   <Route exact path="/" component={Home} />
                   <Route exact path="/dashboard" component={Login} />
+                  <Route exact path="/create" component={Login} />
                   <Route exact path="/favorites" component={Login} />
                   <Route exact path="/login" component={Login} />
                   <Route exact path="/register" component={Register} />
